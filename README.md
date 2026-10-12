@@ -1,3 +1,15 @@
+# TNHTH DashGo adaptation
+
+- Repository: `TNHTH/dashgo-navrl`
+- Upstream: NavRL-style stack. Exact commit: `unknown/unresolved`
+- Fidelity: F3
+- Verification: V0
+- Canonical branch: `main`
+
+这是 TNHTH 从论文实现迁出的 DashGo 适配。下文保留原实验说明；`/home/gwh/` 路径是历史本机位置。
+
+`codex/navrl-rootcause-fix-20260403`（`1320920735684bda5fa16bc18db1f079e3e8bc82`）相对 `main` 多出的 checkpoint 续训辅助已收进当前 `main`：`src/navrl_dashgo/checkpointing.py`、`tests/test_checkpointing_resume.py`、`tools/watch_background_train_until.py`。`tests/test_checkpointing_resume.py` 在 2026-10-12 通过 4 项单元测试。这次收进不表示训练根因已经修复。该 tip 记为 tag `archive-navrl-rootcause-fix-20260403`。
+
 # DashGo NavRL Project
 
 创建时间: 2026-03-26
@@ -45,6 +57,7 @@
 
 - `src/dashgo_rl/`: 从旧仓库迁入的 DashGo Isaac 环境底座
 - `src/navrl_dashgo/`: NavRL 风格训练器、适配器、评测与对比逻辑
+- `src/navrl_dashgo/checkpointing.py`: checkpoint 续训辅助；不表示训练根因已修复
 - `apps/isaac/train_navrl.py`: 新训练入口
 - `tools/compare_models.py`: 统一评测结果对比脚本
 - `configs/train/`: Hydra 风格训练配置
